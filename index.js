@@ -3,13 +3,14 @@ import OpenAI from "openai";
 const openai = new OpenAI();
 
 async function hello() {
-  const completion = await openai.chat.completions.create({
-    messages: [
-      { role: "system", content: "You are a great robot!" }
-    ],
-    model: "gpt-3.5-turbo"
-  });
-  console.log(completion.choices[0]);
+    const completion = await openai.chat.completions.create({
+        messages: [
+            { role: "system", content: "You are a great robot!" },
+            { role: "user", content: "what is the closest ski resort to Lake Ronkonkoma, NY" },
+        ],
+        model: "gpt-3.5-turbo"
+    });
+    console.log(completion.choices[0]);
 }
 
 hello();
